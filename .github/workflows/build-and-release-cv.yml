@@ -27,6 +27,6 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           tag: cv-latest
           release_name: CV (latest)
-          file: cv.pdf
+          file: Rania_Ezzo_CV.pdf
           overwrite: true
           make_latest: true
