@@ -18,10 +18,7 @@ jobs:
       - name: Compile LaTeX
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: main.tex
-
-      - name: Rename output to cv.pdf
-        run: mv main.pdf Rania_Ezzo_CV.pdf
+          root_file: Rania_Ezzo_CV.tex
 
       - name: Upload cv.pdf to GitHub Release
         uses: svenstaro/upload-release-action@v2
