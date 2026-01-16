@@ -19,7 +19,7 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: Rania_Ezzo_CV.tex
-	  latexmk_use_xelatex: true
+          latexmk_use_xelatex: true
 
       - name: Upload cv.pdf to GitHub Release
         uses: svenstaro/upload-release-action@v2
