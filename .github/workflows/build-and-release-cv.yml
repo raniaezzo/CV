@@ -1,0 +1,34 @@
+name: Build and publish CV PDF
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+
+      - name: Rename output to cv.pdf
+        run: mv main.pdf Rania_Ezzo_CV.pdf
+
+      - name: Upload cv.pdf to GitHub Release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: cv-latest
+          release_name: CV (latest)
+          file: cv.pdf
+          overwrite: true
+          make_latest: true
